@@ -36,6 +36,10 @@ function findByArtist(collection, artist){
   return matches;
 }
 
+console.log('Albums by Mac Miller in collection:',findByArtist(myCollection, 'Mac Miller'));
+console.log('Albums by Mk.gee in collection:',findByArtist(myCollection, 'Mk.gee'));
+console.log('Albums by Taylor Swift in collection:',findByArtist(myCollection, 'Taylor Swift'));
+
 
 
 
