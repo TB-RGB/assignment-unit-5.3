@@ -14,16 +14,27 @@ console.log('Album added:',addToCollection(myCollection, 'Led Zeppelin II', 'Led
 console.log('Album added:',addToCollection(myCollection, 'Circles', 'Mac Miller', 2020));
 console.log('Album added:',addToCollection(myCollection, 'Settle', 'Disclosure', 2014));
 console.log('Album added:',addToCollection(myCollection, 'Good Will Prevail', 'GRiZ', 2016));
+console.log('Album added:',addToCollection(myCollection, 'Macadelic', 'Mac Miller', 2012));
 console.log('My album collection:',myCollection);
 
 function showCollection(collection){
-  console.log('Going through my collection, it is:')
-  for (album of collection){
+  // console.log('Going through my collection, it is:')
+  for (let album of collection){
     console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
   }
 }
 
 showCollection(myCollection);
+
+function findByArtist(collection, artist){
+  let matches = [];
+  for (let album of collection){
+    if (album.artist === artist){
+      matches.push(album);
+    }
+  }
+  return matches;
+}
 
 
 
