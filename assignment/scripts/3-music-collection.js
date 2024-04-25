@@ -3,14 +3,27 @@ console.log('***** Music Collection *****')
 let myCollection = [];
 
 function addToCollection(collection, title, artist, yearPublished){
-  let newAlbum = {title: title, artist: artist, year: yearPublished};
+  let newAlbum = {title: title, artist: artist, yearPublished: yearPublished};
   collection.push(newAlbum);
   return newAlbum;
 }
-console.log(addToCollection(myCollection, 'Pronounced McGee', 'Mk.gee', 2018));
-console.log(addToCollection(myCollection, 'Moon Monsoon', 'Moon Monsoon', 2019));
+console.log('Album added:',addToCollection(myCollection, 'Pronounced McGee', 'Mk.gee', 2018));
+console.log('Album added:',addToCollection(myCollection, 'Moon Monsoon', 'Moon Monsoon', 2019));
+console.log('Album added:',addToCollection(myCollection, '40oz to Freedom', 'Sublime', 1992));
+console.log('Album added:',addToCollection(myCollection, 'Led Zeppelin II', 'Led Zeppelin', 1969));
+console.log('Album added:',addToCollection(myCollection, 'Circles', 'Mac Miller', 2020));
+console.log('Album added:',addToCollection(myCollection, 'Settle', 'Disclosure', 2014));
+console.log('Album added:',addToCollection(myCollection, 'Good Will Prevail', 'GRiZ', 2016));
+console.log('My album collection:',myCollection);
 
+function showCollection(collection){
+  console.log('Going through my collection, it is:')
+  for (album of collection){
+    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+  }
+}
 
+showCollection(myCollection);
 
 
 
