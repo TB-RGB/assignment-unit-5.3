@@ -46,11 +46,18 @@ function search(collection, searchCriteria){
     console.log('No search object, here are all albums being searched:');
     return collection;
   } else if (Object.keys(searchCriteria).length === 0){
+    console.log('Search criteria is an empty object, here are all albums searched:')
     return collection;
+  } 
+  for (let prop in searchCriteria){
+    if (searchCriteria[prop] === ''){
+      console.log(`${prop} is empty, here are all albums searched:`)
+      return collection;
+    }
   }
   for (let album of collection){
     if (album.artist === searchCriteria.artist && album.yearPublished === searchCriteria.yearPublished){
-      console.log('a match');
+      console.log(`An album by ${searchCriteria.artist} published in ${searchCriteria.yearPublished} has been found`);
       searchResults.push(album);
       return searchResults;
     }
@@ -58,9 +65,11 @@ function search(collection, searchCriteria){
   return searchResults;
 }
 
-console.log('searching for ray charles/1957',search(myCollection, { artist: 'Ray Charles', yearPublished: 1957 }));
+console.log('Searching for album by Ray Charles from 1957, matches are:',search(myCollection, { artist: 'Ray Charles', yearPublished: 1957 }));
+console.log('Search for Sublime ablum from 1992 is:',search(myCollection, { artist: 'Sublime', yearPublished: 1992 }));
 console.log(search(myCollection));
-console.log(search(myCollection, { artist: 'Sublime', yearPublished: 1992 }));
+console.log(search(myCollection, {artist: '', yearPublished: 1995}));
+console.log(search(myCollection, {artist: 'Soccer Mommy', yearPublished: ''}));
 
 
 
