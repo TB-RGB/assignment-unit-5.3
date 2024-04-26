@@ -40,6 +40,28 @@ console.log('Albums by Mac Miller in collection:',findByArtist(myCollection, 'Ma
 console.log('Albums by Mk.gee in collection:',findByArtist(myCollection, 'Mk.gee'));
 console.log('Albums by Taylor Swift in collection:',findByArtist(myCollection, 'Taylor Swift'));
 
+function search(collection, searchCriteria){
+  let searchResults = [];
+  if (searchCriteria === undefined){
+    console.log('No search object, here are all albums being searched:');
+    return collection;
+  } else if (Object.keys(searchCriteria).length === 0){
+    return collection;
+  }
+  for (let album of collection){
+    if (album.artist === searchCriteria.artist && album.yearPublished === searchCriteria.yearPublished){
+      console.log('a match');
+      searchResults.push(album);
+      return searchResults;
+    }
+  }
+  return searchResults;
+}
+
+console.log('searching for ray charles/1957',search(myCollection, { artist: 'Ray Charles', yearPublished: 1957 }));
+console.log(search(myCollection));
+console.log(search(myCollection, { artist: 'Sublime', yearPublished: 1992 }));
+
 
 
 
