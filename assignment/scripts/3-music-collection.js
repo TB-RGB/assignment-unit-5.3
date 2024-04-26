@@ -2,6 +2,17 @@ console.log("***** Music Collection *****");
 // Safe Zone -- Write code below this line
 let myCollection = [];
 
+
+/**
+ * Function to add albums as objects to the collection param
+ * 
+ * @param {
+ * } collection 
+ * @param {*} title 
+ * @param {*} artist 
+ * @param {*} yearPublished 
+ * @returns Object newAlbum with title, artist, and yearPublished properties
+ */
 function addToCollection(collection, title, artist, yearPublished) {
   let newAlbum = { title: title, artist: artist, yearPublished: yearPublished };
   collection.push(newAlbum);
@@ -41,6 +52,11 @@ console.log(
 );
 console.log("My album collection:", myCollection);
 
+
+/**
+ * logs each object in collection and iterpolates properties into string of album info
+ * @param {*} collection 
+ */
 function showCollection(collection) {
   for (let album of collection) {
     console.log(
@@ -51,6 +67,13 @@ function showCollection(collection) {
 
 showCollection(myCollection);
 
+
+/**
+ * Finds albums by the artist param within given collection
+ * @param {*} collection 
+ * @param {*} artist 
+ * @returns matches array, populated if any match has been found
+ */
 function findByArtist(collection, artist) {
   let matches = [];
   for (let album of collection) {
@@ -74,6 +97,13 @@ console.log(
   findByArtist(myCollection, "Taylor Swift")
 );
 
+/**
+ * Searches collection by obj searchCriteria artist and yearPublished props
+ * @param {*} collection 
+ * @param {*} searchCriteria 
+ * @returns collection if searchCriteria is not fullfilled
+ * @returns searchResults if searchCriteria is fullfilled; either empty if no match, else, populated with album object
+ */
 function search(collection, searchCriteria) {
   let searchResults = [];
   if (searchCriteria === undefined) {
