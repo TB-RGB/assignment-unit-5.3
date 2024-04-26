@@ -1,63 +1,104 @@
-console.log('***** Music Collection *****')
+console.log("***** Music Collection *****");
 // Safe Zone -- Write code below this line
 let myCollection = [];
 
-function addToCollection(collection, title, artist, yearPublished){
-  let newAlbum = {title: title, artist: artist, yearPublished: yearPublished};
+function addToCollection(collection, title, artist, yearPublished) {
+  let newAlbum = { title: title, artist: artist, yearPublished: yearPublished };
   collection.push(newAlbum);
   return newAlbum;
 }
-console.log('Album added:',addToCollection(myCollection, 'Pronounced McGee', 'Mk.gee', 2018));
-console.log('Album added:',addToCollection(myCollection, 'Moon Monsoon', 'Moon Monsoon', 2019));
-console.log('Album added:',addToCollection(myCollection, '40oz to Freedom', 'Sublime', 1992));
-console.log('Album added:',addToCollection(myCollection, 'Led Zeppelin II', 'Led Zeppelin', 1969));
-console.log('Album added:',addToCollection(myCollection, 'Circles', 'Mac Miller', 2020));
-console.log('Album added:',addToCollection(myCollection, 'Settle', 'Disclosure', 2014));
-console.log('Album added:',addToCollection(myCollection, 'Good Will Prevail', 'GRiZ', 2016));
-console.log('Album added:',addToCollection(myCollection, 'Macadelic', 'Mac Miller', 2012));
-console.log('My album collection:',myCollection);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Pronounced McGee", "Mk.gee", 2018)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Moon Monsoon", "Moon Monsoon", 2019)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "40oz to Freedom", "Sublime", 1992)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Led Zeppelin II", "Led Zeppelin", 1969)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Circles", "Mac Miller", 2020)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Settle", "Disclosure", 2014)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Good Will Prevail", "GRiZ", 2016)
+);
+console.log(
+  "Album added:",
+  addToCollection(myCollection, "Macadelic", "Mac Miller", 2012)
+);
+console.log("My album collection:", myCollection);
 
-function showCollection(collection){
-  // console.log('Going through my collection, it is:')
-  for (let album of collection){
-    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+function showCollection(collection) {
+  for (let album of collection) {
+    console.log(
+      `${album.title} by ${album.artist}, published in ${album.yearPublished}`
+    );
   }
 }
 
 showCollection(myCollection);
 
-function findByArtist(collection, artist){
+function findByArtist(collection, artist) {
   let matches = [];
-  for (let album of collection){
-    if (album.artist === artist){
+  for (let album of collection) {
+    if (album.artist === artist) {
       matches.push(album);
     }
   }
   return matches;
 }
 
-console.log('Albums by Mac Miller in collection:',findByArtist(myCollection, 'Mac Miller'));
-console.log('Albums by Mk.gee in collection:',findByArtist(myCollection, 'Mk.gee'));
-console.log('Albums by Taylor Swift in collection:',findByArtist(myCollection, 'Taylor Swift'));
+console.log(
+  "Albums by Mac Miller in collection:",
+  findByArtist(myCollection, "Mac Miller")
+);
+console.log(
+  "Albums by Mk.gee in collection:",
+  findByArtist(myCollection, "Mk.gee")
+);
+console.log(
+  "Albums by Taylor Swift in collection:",
+  findByArtist(myCollection, "Taylor Swift")
+);
 
-function search(collection, searchCriteria){
+function search(collection, searchCriteria) {
   let searchResults = [];
-  if (searchCriteria === undefined){
-    console.log('No search object, here are all albums being searched:');
+  if (searchCriteria === undefined) {
+    console.log("No search object, here are all albums being searched:");
     return collection;
-  } else if (Object.keys(searchCriteria).length === 0){
-    console.log('Search criteria is an empty object, here are all albums searched:')
+  } else if (Object.keys(searchCriteria).length === 0) {
+    console.log(
+      "Search criteria is an empty object, here are all albums searched:"
+    );
     return collection;
-  } 
-  for (let prop in searchCriteria){
-    if (searchCriteria[prop] === ''){
-      console.log(`${prop} is empty, here are all albums searched:`)
+  }
+  for (let prop in searchCriteria) {
+    if (searchCriteria[prop] === "") {
+      console.log(`${prop} is empty, here are all albums searched:`);
       return collection;
     }
   }
-  for (let album of collection){
-    if (album.artist === searchCriteria.artist && album.yearPublished === searchCriteria.yearPublished){
-      console.log(`An album by ${searchCriteria.artist} published in ${searchCriteria.yearPublished} has been found`);
+  for (let album of collection) {
+    if (
+      album.artist === searchCriteria.artist &&
+      album.yearPublished === searchCriteria.yearPublished
+    ) {
+      console.log(
+        `An album by ${searchCriteria.artist} published in ${searchCriteria.yearPublished} has been found`
+      );
       searchResults.push(album);
       return searchResults;
     }
@@ -65,29 +106,35 @@ function search(collection, searchCriteria){
   return searchResults;
 }
 
-console.log('Searching for album by Ray Charles from 1957, matches are:',search(myCollection, { artist: 'Ray Charles', yearPublished: 1957 }));
-console.log('Search for Sublime ablum from 1992 is:',search(myCollection, { artist: 'Sublime', yearPublished: 1992 }));
+console.log(
+  "Searching for album by Ray Charles from 1957, matches are:",
+  search(myCollection, { artist: "Ray Charles", yearPublished: 1957 })
+);
+console.log(
+  "Search for Sublime album from 1992 is:",
+  search(myCollection, { artist: "Sublime", yearPublished: 1992 })
+);
 console.log(search(myCollection));
-console.log(search(myCollection, {artist: '', yearPublished: 1995}));
-console.log(search(myCollection, {artist: 'Soccer Mommy', yearPublished: ''}));
-
-
-
-
-
-
+console.log(search(myCollection, { artist: "", yearPublished: 1995 }));
+console.log(
+  search(myCollection, { artist: "Soccer Mommy", yearPublished: "" })
+);
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
 try {
   module.exports = {
-    myCollection: typeof myCollection !== 'undefined' ? myCollection : undefined,
-    addToCollection: typeof addToCollection !== 'undefined' ? addToCollection : undefined,
-    showCollection: typeof showCollection !== 'undefined' ? showCollection : undefined,
-    findByArtist: typeof findByArtist !== 'undefined' ? findByArtist : undefined,
-    search: typeof search !== 'undefined' ? search : undefined,
-  }
+    myCollection:
+      typeof myCollection !== "undefined" ? myCollection : undefined,
+    addToCollection:
+      typeof addToCollection !== "undefined" ? addToCollection : undefined,
+    showCollection:
+      typeof showCollection !== "undefined" ? showCollection : undefined,
+    findByArtist:
+      typeof findByArtist !== "undefined" ? findByArtist : undefined,
+    search: typeof search !== "undefined" ? search : undefined,
+  };
 } catch (e) {
   // Do nothing
 }
