@@ -165,23 +165,27 @@ console.log(
 );
 console.log("My album collection:", myCollection);
 
-function listTracks(){
-  for (let i = 1; i <= this.tracks.length; i++){
-    let track = this.tracks[i-1];
-    console.log(`${i}. ${track.name}: ${track.duration}\n`)
+/**
+ *logs each object in collection and iterpolates properties into string of album info
+ * @param {*} album 
+ * @returns 
+ */
+function listTracks(album) {
+  let albInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}:\n`;
+  for (let i = 1; i <= album.tracks.length; i++){
+    let track = album.tracks[i-1];
+    albInfo += `${i}. ${track.name}: ${track.duration}\n`;
   }
+  return albInfo;
 }
 
 /**
- * logs each object in collection and iterpolates properties into string of album info
- * @param {*} collection
+ * Uses the listTracks function to generate a string ouput album info, for each album in the collection
+ * @param {*} collection 
  */
 function showCollection(collection) {
-  for (let album of collection) {
-    console.log(
-      `${album.title} by ${album.artist}, published in ${album.yearPublished}:
-        ${album.listTracks()}`
-    );
+  for (let album of collection){
+    console.log(listTracks(album));
   }
 }
 
