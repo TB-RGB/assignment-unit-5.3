@@ -244,6 +244,12 @@ function search(collection, searchCriteria) {
       return collection;
     }
   }
+  if (searchCriteria.hasOwnProperty('trackName')) {
+    let results = collection;
+    results = results.filter((record) => record.tracks.some((track) => track.name === searchCriteria.trackName));
+    console.log(`A track with the title ${searchCriteria.trackName} has been found on:`);
+    return results;
+  } else {
   for (let album of collection) {
     if (
       album.artist === searchCriteria.artist &&
@@ -257,6 +263,7 @@ function search(collection, searchCriteria) {
     }
   }
   return searchResults;
+}
 }
 
 console.log(
@@ -272,6 +279,10 @@ console.log(search(myCollection, { artist: "", yearPublished: 1995 }));
 console.log(
   search(myCollection, { artist: "Soccer Mommy", yearPublished: "" })
 );
+console.log('Search for "artist: Mk.gee" and "yearPublished: 2018"', search(myCollection, { artist: "Mk.gee", yearPublished: 2018}));
+console.log('Search for track "Roll With the Punches"', search(myCollection, { trackName: "Roll With the Punches"}));
+console.log('Search for track "Badfish"', search(myCollection, { trackName: "Badfish"}));
+
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
