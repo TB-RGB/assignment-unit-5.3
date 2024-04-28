@@ -247,7 +247,7 @@ function search(collection, searchCriteria) {
   if (searchCriteria.hasOwnProperty('trackName')) {
     let results = collection;
     results = results.filter((record) => record.tracks.some((track) => track.name === searchCriteria.trackName));
-    console.log(`A track with the title ${searchCriteria.trackName} has been found on:`);
+    console.log(`A track with the title '${searchCriteria.trackName}' has been found on:`);
     return results;
   } else {
   for (let album of collection) {
