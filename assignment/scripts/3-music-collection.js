@@ -222,7 +222,7 @@ console.log(
 );
 
 /**
- * Searches collection by obj searchCriteria artist and yearPublished props
+ * Searches collection by obj searchCriteria artist, yearPublished, and trackName props; prioritizes trackName;
  * @param {*} collection
  * @param {*} searchCriteria
  * @returns collection if searchCriteria is not fullfilled
