@@ -10,7 +10,8 @@ let myCollection = [];
  * @param {*} title
  * @param {*} artist
  * @param {*} yearPublished
- * @returns Object newAlbum with title, artist, and yearPublished properties
+ * @param {*} tracks []
+ * @returns Object newAlbum with title, artist, yearPublished, and tracks[] properties
  */
 function addToCollection(collection, title, artist, yearPublished, tracks) {
   let newAlbum = {
@@ -232,7 +233,7 @@ function search(collection, searchCriteria) {
   if (searchCriteria === undefined) {
     console.log("No search object, here are all albums being searched:");
     return collection;
-  } else if (Object.keys(searchCriteria).length === 0) {
+  } else if (searchCriteria.length === 0) {
     console.log(
       "Search criteria is an empty object, here are all albums searched:"
     );
