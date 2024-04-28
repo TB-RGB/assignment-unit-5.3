@@ -196,7 +196,7 @@ showCollection(myCollection);
  * Finds albums by the artist param within given collection
  * @param {*} collection
  * @param {*} artist
- * @returns matches array, populated if any match has been found
+ * @returns 'matches' array, populated if any match has been found
  */
 function findByArtist(collection, artist) {
   let matches = [];
